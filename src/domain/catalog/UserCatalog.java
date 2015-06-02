@@ -1,8 +1,11 @@
-package domain;
+package domain.catalog;
 
 
 import java.util.HashMap;
 import java.util.Map;
+
+import domain.Oriented;
+import domain.User;
 
 public class UserCatalog {
 	

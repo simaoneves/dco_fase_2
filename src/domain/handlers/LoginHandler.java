@@ -1,9 +1,9 @@
 package domain.handlers;
 
 import services.SessionManager;
+import domain.catalog.UserCatalog;
 import domain.interfaces.ILoginHandler;
 import domain.User;
-import domain.UserCatalog;
 
 /**
  * The login handler used for building the user interface

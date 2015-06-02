@@ -3,7 +3,7 @@ package domain.handlers;
 import domain.Oriented;
 import domain.Supervisor;
 import domain.User;
-import domain.UserCatalog;
+import domain.catalog.UserCatalog;
 import domain.interfaces.INewUserHandler;
 
 /**

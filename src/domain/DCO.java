@@ -1,5 +1,7 @@
 package domain;
 
+import domain.catalog.UnitCatalog;
+import domain.catalog.UserCatalog;
 import domain.handlers.LoginHandler;
 import domain.handlers.NewUserHandler;
 import domain.handlers.CreateCategoryHandler;
@@ -9,7 +11,6 @@ import domain.handlers.ObtainIndicatorsHandler;
 import domain.handlers.ObtainUnitsHandler;
 import domain.handlers.CreateUnitHandler;
 import domain.handlers.AddObservationsHandler;
-
 import domain.interfaces.IAddObservationsHandler;
 import domain.interfaces.ICreateCategoryHandler;
 import domain.interfaces.ICreateIndicatorHandler;
@@ -19,7 +20,6 @@ import domain.interfaces.ILoginHandler;
 import domain.interfaces.INewUserHandler;
 import domain.interfaces.IObtainCategoriesHandler;
 import domain.interfaces.IObtainIndicatorsHandler;
-
 import services.SessionManager;
 
 /**

@@ -1,4 +1,4 @@
-package domain;
+package domain.converter;
 
 public class KmMileConverter extends AbstractUnitConverter {
 	 

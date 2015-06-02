@@ -8,7 +8,7 @@ import devices.DeviceFactory;
 import devices.IDeviceAdapter;
 import domain.User;
 import domain.Unit;
-import domain.UnitCatalog;
+import domain.catalog.UnitCatalog;
 import domain.interfaces.ICreateIndicatorHandler;
 
 /**

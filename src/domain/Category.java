@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import devices.IDeviceAdapter;
+import domain.factory.IndicatorFactory;
 
 public class Category {
 	

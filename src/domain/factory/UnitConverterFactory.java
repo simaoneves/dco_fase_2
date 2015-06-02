@@ -1,7 +1,9 @@
-package domain;
+package domain.factory;
 
 import java.util.List;
 import java.util.LinkedList;
+
+import domain.converter.AbstractUnitConverter;
 
 public class UnitConverterFactory {
 	
