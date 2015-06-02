@@ -11,22 +11,35 @@ import domain.interfaces.IObtainCategoriesHandler;
 /**
  * An obtain categories handler user for building the user interface
  * 
- * @author fmartins
+ * @author Joao R. && Simao N.
  *
  */
 public class ObtainCategoriesHandler implements IObtainCategoriesHandler {
 
-	// This is a stub, so there is no need for attributes.
-	// I guess you will need, maybe, the current user ;)
-	
+	/**
+	 * attributes
+	 */
 	protected User currentUser;
 	protected LinkedList<String> categoryList;
 	private Collection<Category> userCategories;
 	
+	/**
+	 * constructor
+	 * 
+	 * @param authenticatedUser
+	 * 			autheticated user
+	 * 
+	 * @ensures currentUser != null
+	 */
 	public ObtainCategoriesHandler(User authenticatedUser) {
 		this.currentUser = authenticatedUser;
 	}
 	
+	/**
+	 * get user categories
+	 * 
+	 * @see IObtainCategoriesHandler#getCategoriesAuthenticatedUser()
+	 */
 	@Override
 	public Iterable<String> getCategoriesAuthenticatedUser() {
 		System.out.println("ObtainCategories: getCategoriesAuthenticatedUser()");
@@ -34,6 +47,12 @@ public class ObtainCategoriesHandler implements IObtainCategoriesHandler {
 		return categoryList;
 	}
 	
+	/**
+	 * get user created categories
+	 * 
+	 * @return
+	 * 		names of user categories
+	 */
 	public LinkedList<String> createCategoriesList() {
 		this.categoryList = new LinkedList<String>();
 		
@@ -42,6 +61,7 @@ public class ObtainCategoriesHandler implements IObtainCategoriesHandler {
 		
 		return categoryList;
 	}
+	
 	
 	private void preencheCategNames() {
 		Iterator<Category> iterator = userCategories.iterator();

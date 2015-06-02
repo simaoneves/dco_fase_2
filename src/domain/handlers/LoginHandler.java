@@ -8,17 +8,32 @@ import domain.User;
 /**
  * The login handler used for building the user interface
  * 
- * @author fmartins
+ * @author Joao R. && Simao N.
  *
  */
 public class LoginHandler implements ILoginHandler {
 	
+	/**
+	 * users catalog
+	 */
 	public UserCatalog userCatalog;
 	
+	/**
+	 * constructor
+	 * 
+	 * @param uc
+	 * 			users catalog to be used
+	 * @ensures userCatalog = uc
+	 */
 	public LoginHandler(UserCatalog uc) {
 		userCatalog = uc;
 	}
 
+	/**
+	 * validates a user login
+	 * 
+	 * @see ILoginHandler#login(String, String)
+	 */
 	@Override
 	public boolean login(String username, String password) {
 		
