@@ -1,10 +1,7 @@
 package domain.handlers;
 
-import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
 
-import domain.Unit;
 import domain.User;
 import domain.catalog.UnitCatalog;
 import domain.interfaces.IObtainUnitsHandler;

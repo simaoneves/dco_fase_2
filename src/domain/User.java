@@ -64,7 +64,7 @@ public abstract class User {
 	 * @return
 	 * 		user password
 	 */	
-	public String getPassword() {
+	public String getPwd() {
 		return this.password;
 	}
 	

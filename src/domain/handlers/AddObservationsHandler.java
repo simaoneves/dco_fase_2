@@ -65,12 +65,15 @@ public class AddObservationsHandler extends ObtainUnitsHandler
 		String unNick = this.unit.getNick();
 		List<String> unitsList = new LinkedList<String>();
 		unitsList.add(unNick);
-		Iterator<Unit> iter = unit.getCompatibleUnits();
-		addCompatible(iter, unitsList);
+		Iterable<Unit> compatibleUnitsList = unit.getCompatibleUnits();
+		addCompatible(compatibleUnitsList, unitsList);
 		return unitsList;
 	}
 	
-	private void addCompatible(Iterator<Unit> iter, List<String> unitsList){
+	private void addCompatible(Iterable<Unit> compatibleUnitsList, List<String> unitsList){
+		Iterator<Unit> iter = compatibleUnitsList.iterator();
+		System.out.println("TESTE      :" + unitsList);
+		System.out.println(compatibleUnitsList);
 		while(iter.hasNext()) {
 			String nick = iter.next().getNick();
 			unitsList.add(nick);
@@ -81,6 +84,8 @@ public class AddObservationsHandler extends ObtainUnitsHandler
 	public Iterable<String> getAllUnits() {
 		System.out.println("AddObservations: getAllUnits() for indicator \"" + 
 				selectedIndicator + "\"");
+		
+		
 		return super.getAllUnits();		
     }
 	

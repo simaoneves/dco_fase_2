@@ -40,7 +40,7 @@ public class DCO implements IDCO {
 		this.userCatalog = new UserCatalog();
 	}
 	
-	private User getAuthenticatedUser() {
+	public User getAuthenticatedUser() {
 		SessionManager sm = SessionManager.getInstance();
 		String name = sm.getAuthenticatedUser();
 		return userCatalog.getUser(name);

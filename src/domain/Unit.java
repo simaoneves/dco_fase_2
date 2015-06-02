@@ -52,8 +52,8 @@ public class Unit {
 		return this.name;
 	}
 	
-	public Iterator<Unit> getCompatibleUnits(){
-		return this.compatibleList.iterator();
+	public Iterable<Unit> getCompatibleUnits(){
+		return this.compatibleList;
 	}
 
 	public Double convertTo(Unit unit, Double oldVal) {
@@ -66,5 +66,9 @@ public class Unit {
 	
 	public String toString() {
 		return "[Name: " + this.name + "; Nick:" + this.nick + ";]";
+	}
+
+	public Iterable<IUnitConverter> getConverters() {
+		return converterMap.values();
 	}
 }

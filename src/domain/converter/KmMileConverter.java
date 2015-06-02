@@ -7,26 +7,41 @@ public class KmMileConverter extends AbstractUnitConverter {
 
 	@Override
 	public Double convert(String fromNick, String toNick, Double oldVal) {
-		Double result;
-		if (fromNick.equals("km")){
+		
+		Double result = 0.0;
+		if (fromNick.equals("Km")){
 			switch (toNick) {
-				case "mile":
+				case "Mile":
 					result = oldVal * ONE_KILOMETER_IN_MILES;
 					break;
-			}
-		}
-		
-		if (fromNick.equals("m")){
-			switch (toNick) {
-				case "mile":
-					result = (oldVal * 1000) * ONE_KILOMETER_IN_MILES;
+				case "m":
+					result = oldVal * 1000;
 					break;
 			}
 		}
 		
-		return ONE_MILE_IN_KILOMETERS * oldVal;
+		else if (fromNick.equals("m")){
+			switch (toNick) {
+				case "Mile":
+					result = (oldVal * 1000) * ONE_KILOMETER_IN_MILES;
+					break;
+				case "Km":
+					result = (oldVal / 1000);
+					break;
+			}
+		}
+		
+		else if (fromNick.equals("Mile")){
+			switch (toNick) {
+				case "Km":
+					result = oldVal * ONE_MILE_IN_KILOMETERS;
+					break;
+				case "m":
+					result = (oldVal * ONE_KILOMETER_IN_MILES) * 1000;
+					break;
+			}
+		}
+		return result;
 	}
-
-	
 	
 }

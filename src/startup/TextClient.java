@@ -1,6 +1,5 @@
 package startup;
-/*package startup;
-
+/*
 import java.util.Calendar;
 
 import domain.Category;
@@ -8,14 +7,14 @@ import domain.DCO;
 import domain.Indicator;
 import domain.Observation;
 import domain.Unit;
-import domain.UnitCatalog;
+import domain.catalog.UnitCatalog;
 import domain.User;
-import domain.facade.IAddObservationsHandler;
-import domain.facade.ICreateCategoryHandler;
-import domain.facade.ICreateIndicatorHandler;
-import domain.facade.ICreateUnitHandler;
-import domain.facade.ILoginHandler;
-import domain.facade.INewUserHandler;
+import domain.interfaces.IAddObservationsHandler;
+import domain.interfaces.ICreateCategoryHandler;
+import domain.interfaces.ICreateIndicatorHandler;
+import domain.interfaces.ICreateUnitHandler;
+import domain.interfaces.ILoginHandler;
+import domain.interfaces.INewUserHandler;
 
 public class TextClient {
 	static DCO initObject;
