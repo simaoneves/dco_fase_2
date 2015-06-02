@@ -10,8 +10,8 @@ import java.util.List;
 import domain.Indicator;
 import domain.Observation;
 import domain.Unit;
-import domain.UnitCatalog;
 import domain.User;
+import domain.catalog.UnitCatalog;
 import domain.interfaces.IAddObservationsHandler;
 
 /**

@@ -1,4 +1,4 @@
-package domain;
+package domain.converter;
 
 import domain.interfaces.IUnitConverter;
 import domain.Pair;

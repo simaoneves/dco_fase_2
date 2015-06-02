@@ -6,7 +6,7 @@ import java.util.List;
 
 import domain.Unit;
 import domain.User;
-import domain.UnitCatalog;
+import domain.catalog.UnitCatalog;
 import domain.interfaces.IObtainUnitsHandler;
 
 /**

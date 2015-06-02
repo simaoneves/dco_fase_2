@@ -1,9 +1,10 @@
 package domain.handlers;
 
-import domain.UnitCatalog;
 import domain.Unit;
+
 import java.util.Arrays;
 
+import domain.catalog.UnitCatalog;
 import domain.interfaces.ICreateUnitHandler;
 
 /**

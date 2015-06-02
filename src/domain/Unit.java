@@ -1,5 +1,7 @@
 package domain;
 
+import domain.converter.AbstractUnitConverter;
+import domain.factory.UnitConverterFactory;
 import domain.interfaces.IUnitConverter;
 
 import java.util.Iterator;

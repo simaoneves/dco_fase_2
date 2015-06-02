@@ -1,7 +1,9 @@
-package domain;
+package domain.catalog;
 
 import java.util.Map;
 import java.util.HashMap;
+
+import domain.Unit;
 
 public class UnitCatalog {
 	

@@ -1,4 +1,7 @@
-package domain;
+package domain.factory;
+
+import domain.Automatic;
+import domain.Indicator;
 
 public class IndicatorFactory {
 	
