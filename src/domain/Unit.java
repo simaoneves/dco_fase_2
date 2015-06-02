@@ -1,7 +1,8 @@
 package domain;
 
-import domain.AbstractUnitConverter;
+import domain.interfaces.IUnitConverter;
 
+import java.util.Iterator;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
@@ -11,13 +12,13 @@ public class Unit {
 	
 	private String name;
 	private String nick;
-	private Map<String, AbstractUnitConverter> converterMap;
+	private Map<String, IUnitConverter> converterMap;
 	private List<Unit> compatibleList;
 	
 	public Unit(String name, String nick) {
 		this.name = name;
 		this.nick = nick;
-		this.converterMap = new HashMap<String, AbstractUnitConverter>();
+		this.converterMap = new HashMap<String, IUnitConverter>();
 		this.compatibleList = new LinkedList<Unit>();
 	}
 	
@@ -47,5 +48,21 @@ public class Unit {
 	
 	public String getName(){
 		return this.name;
+	}
+	
+	public Iterator<Unit> getCompatibleUnits(){
+		return this.compatibleList.iterator();
+	}
+
+	public Double convertTo(Unit unit, Double oldVal) {
+		Double result = null;
+		IUnitConverter conv = converterMap.get(unit.getNick());
+		if (conv != null)
+			result = conv.convert(nick, unit.getNick(), oldVal);
+		return result;
+	}
+	
+	public String toString() {
+		return "[Name: " + this.name + "; Nick:" + this.nick + ";]";
 	}
 }

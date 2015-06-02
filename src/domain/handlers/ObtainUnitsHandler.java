@@ -47,7 +47,7 @@ public class ObtainUnitsHandler extends ObtainIndicatorsHandler
 	@Override
 	public Iterable<String> getIndicatorsAuthenticatedUser() {
 		// TODO Auto-generated method stub
-		return indicatorsList;
+		return this.createIndicatorsList(this.currentCat.getName());
 	}
 
 	@Override

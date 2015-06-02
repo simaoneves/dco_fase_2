@@ -12,7 +12,7 @@ public abstract class AbstractUnitConverter implements IUnitConverter{
 	
 	public boolean doYouConvert(String nick, String unitNick) {
 		boolean result = false;
-		for(Pair pair : fromTo) {
+		for(Pair<String, String> pair : fromTo) {
 			if (pair.getFirst() == nick && pair.getSecond() == unitNick) {
 				result = true;
 				break;
@@ -20,5 +20,5 @@ public abstract class AbstractUnitConverter implements IUnitConverter{
 		}
 		return result;
 	}
-	
+	public abstract Double convert(String nick, String nick2, Double oldVal);
 }

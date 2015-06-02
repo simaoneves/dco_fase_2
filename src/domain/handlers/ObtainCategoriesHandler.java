@@ -34,10 +34,10 @@ public class ObtainCategoriesHandler implements IObtainCategoriesHandler {
 		return categoryList;
 	}
 	
-	public <T extends Collection<String>> T createCategoriesList() {
+	public LinkedList<String> createCategoriesList() {
 		this.categoryList = new LinkedList<String>();
 		
-		userCategories = currentUser.getCategories();
+		userCategories = currentUser.getCategories(); 
 		preencheCategNames();
 		
 		return categoryList;

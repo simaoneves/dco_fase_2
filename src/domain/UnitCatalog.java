@@ -19,7 +19,7 @@ public class UnitCatalog {
 	}
 	
 	public void addUnit(Unit unit) {
-		this.unitMap.put(unit.getName(), unit);
+		this.unitMap.put(unit.getNick(), unit);
 	}
 	
 	public Iterable<String> unitsList() {

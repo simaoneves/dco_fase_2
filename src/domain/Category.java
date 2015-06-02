@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -11,6 +12,7 @@ public class Category {
 	private String name;
 	private Map<String, Indicator> indicatorsList;
 	private Indicator currentIndicator;
+	private Unit observUnit;
 	
 	public Category(String name) {
 		this.name = name;
@@ -30,8 +32,9 @@ public class Category {
 		setCurrentIndicator(curInd);
 	}
 	
-	public void setCurrentIndicator(Indicator ind) {
+	public Unit setCurrentIndicator(Indicator ind) {
 		this.currentIndicator = ind;
+		return this.currentIndicator.getUnit();
 	}
 	
 	public void setUnitCurrentIndicator(Unit unit) {
@@ -42,9 +45,18 @@ public class Category {
 		((Automatic) currentIndicator).setDevice(device);
 	}
 	
+	public void setObservationsUnit(Unit unit) {
+		
+		this.observUnit = unit;
+	}
+	
 	public void confirmCreationIndicator() {
 		String name = currentIndicator.getName();
 		indicatorsList.put(name, currentIndicator);
+	}
+
+	public void addObservationsCurrentIndicator(List<Observation> observList) {
+		this.currentIndicator.addObservations(observList, this.observUnit);	
 	}
 
 }
