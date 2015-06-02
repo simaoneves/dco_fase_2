@@ -12,46 +12,68 @@ import domain.Category;
 
 import java.util.LinkedList;
 
+import domain.interfaces.ICreateIndicatorHandler;
 import domain.interfaces.IObtainIndicatorsHandler;
 
 /**
  * An obtained indicators handler used for building the user interface
  * 
- * @author fmartins
+ * @author Joao R. && Simao N.
  *
  */
 public class ObtainIndicatorsHandler extends ObtainCategoriesHandler 
 							implements IObtainIndicatorsHandler {
 
+	/**
+	 * attributes
+	 */
 	protected Map<String, List<String>> indicatorsByCategory;
 	private String selectedCategory;
 	protected Category currentCat;
 	
+	/**
+	 * constructor
+	 * 
+	 * @param authenticatedUser
+	 * @see ObtainCategoriesHandler#ObtainCategoriesHandler(User)
+	 * @ensures indicatorsByCategory != null
+	 */
 	public ObtainIndicatorsHandler(User authenticatedUser) {
 		super(authenticatedUser);
 		indicatorsByCategory = new HashMap<>();		
 	}
 	
+	/**
+	 * @see IObtainIndicatorsHandler#selectCategory(String)
+	 * @ensures selectedCategory.equals(name)
+	 */
 	@Override
 	public void selectCategory(String name) {
 		System.out.println("ObtainIndicators: selectCategory(\"" + name + "\")");
 		this.selectedCategory = name;
-		// MALLLLL
+		
 		indicatorsByCategory.put(name, createIndicatorsList(name));
 	}
 	
+	/**
+	 * get all indicators of the received category name
+	 * 
+	 * @param catId
+	 * 			category name to be considered
+	 * @return
+	 * 			all category indicators
+	 */
 	public LinkedList<String> createIndicatorsList(String catId) {
 		this.currentCat = this.currentUser.getCategory(catId);	
 		LinkedList<String> indicatorsList = new LinkedList<String>();
-		Iterator<Indicator> categoryIndicatorsIterator = currentCat.getIndicators();
+		Iterator<Indicator> categoryIndicators = currentCat.getIndicators();
 		
-		/// MALLLLLLLLL
-		preencheIndicatorNames(categoryIndicatorsIterator, indicatorsList);
+		
+		preencheIndicatorNames(categoryIndicators, indicatorsList);
 		return indicatorsList;
 	}
 	
-	// MALLLLLLLLL
-	private void preencheIndicatorNames(Iterator<Indicator> categoryIndicatorsIterator, LinkedList<String> indicatorsList) {
+	private <T extends Iterator<Indicator>> void preencheIndicatorNames(T categoryIndicatorsIterator, LinkedList<String> indicatorsList) {
 		while (categoryIndicatorsIterator.hasNext()) {
 			Indicator i = categoryIndicatorsIterator.next();
 			String name = i.getName();
@@ -60,6 +82,9 @@ public class ObtainIndicatorsHandler extends ObtainCategoriesHandler
 		
 	}
 
+	/**
+	 * @see ICreateIndicatorHandler#getIndicatorsAuthenticatedUser()
+	 */
 	@Override
 	public Iterable<String> getIndicatorsAuthenticatedUser() {
 		System.out.println("ObtainIndicators: getIndicatorsAuthenticatedUser()");

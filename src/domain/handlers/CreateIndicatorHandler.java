@@ -1,9 +1,5 @@
 package domain.handlers;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.LinkedList;
-
 import devices.DeviceFactory;
 import devices.IDeviceAdapter;
 import domain.User;
@@ -14,50 +10,92 @@ import domain.interfaces.ICreateIndicatorHandler;
 /**
  * A create indicator handler used for building the user interface
  * 
- * @author fmartins
+ * @author Joao R. && Simao N.
  *
  */
 public class CreateIndicatorHandler extends ObtainUnitsHandler 
 						implements ICreateIndicatorHandler {
 	
+	/**
+	 * attributes
+	 */
 	private Iterable<String> deviceList;
 	
+	/**
+	 * constructor
+	 * 
+	 * @param authenticatedUser
+	 * 			authenticated user
+	 * @param uniCat
+	 * 			system unit catalog
+	 * @see ObtainUnitsHandler#ObtainUnitsHandler(User, UnitCatalog)
+	 */
 	public CreateIndicatorHandler(User authenticatedUser, UnitCatalog uniCat) {
 		super(authenticatedUser, uniCat);
 	}
 
+	/**
+	 * @see ICreateIndicatorHandler#newIndicator()
+	 */
 	@Override
 	public void newIndicator() {
 		System.out.println("CreateIndicator: newIndicator()");
 		this.categoryList = createCategoriesList(); 
 	}
 	
+	/**
+	 * select current category by name
+	 * 
+	 * @param catId
+	 * 			category name to be considered
+	 */
 	public void selectCategory(String catId) {
 		this.indicatorsList = createIndicatorsList(catId);
 	}
-			
+	
+	/**
+	 * @see ICreateIndicatorHandler#supplyNameAndMode(String, String)
+	 */
 	@Override 
 	public boolean supplyNameAndMode(String name, String mode) {
 		System.out.println("CreateIndicator: supplyNameAndMode(\"" + name + "\", \"" + mode + "\")");
+		
+		if(this.indicatorsList.contains(name))
+			return false;
+		
 		currentCat.createIndicator(name, mode);
 		Iterable<String> unitList = createUnitsList();
 		if (mode.equals("AUTOMATIC")) {
 			this.deviceList = createDevicesList();
 		}
-		/// MAL
+		
 		return true;
 	}
 	
+	/**
+	 * get a list of device adapters
+	 * 
+	 * @return
+	 * 		get a list of device adapters
+	 */
 	private Iterable<String> createDevicesList() {
 		return DeviceFactory.INSTANCE.deviceAdaptersList();
 	}
 	
+	/**
+	 * get the name of all available devices
+	 * 
+	 * @see ICreateIndicatorHandler#getDeviceNames()
+	 */
 	@Override 
 	public Iterable<String> getDeviceNames() {
 		System.out.println("CreateIndicator: getDeviceNames()");
 		return getAllDevices();		
 	}
 
+	/**
+	 * @see ICreateIndicatorHandler#selectDevice(String)
+	 */
 	@Override
 	public void selectDevice(String name) {
 		System.out.println("CreateIndicator: selectDevice(\"" + name + "\")");
@@ -65,11 +103,17 @@ public class CreateIndicatorHandler extends ObtainUnitsHandler
 		currentCat.setDeviceCurrentIndicator(device);
 	}	
 
+	/**
+	 * @see ICreateIndicatorHandler#cancel()
+	 */
 	@Override
 	public void cancel() {
 		System.out.println("CreateIndicator: cancel()");
 	}
 
+	/**
+	 * @see ICreateIndicatorHandler#selectUnit(String)
+	 */
 	@Override
 	public void selectUnit(String name) {
 		System.out.println("CreateIndicator: selectUnit(\"" + name + "\")");
@@ -77,12 +121,21 @@ public class CreateIndicatorHandler extends ObtainUnitsHandler
 		currentCat.setUnitCurrentIndicator(unit);
 	}
 
+	/**
+	 * @see ICreateIndicatorHandler#confirm()
+	 */
 	@Override
 	public void confirm() {
 		System.out.println("CreateIndicator: confirm()");
 		currentCat.confirmCreationIndicator();
 	}
 	
+	/**
+	 * get the name of all available devices
+	 * 
+	 * @return
+	 * 		list with devices names
+	 */
 	public Iterable<String> getAllDevices() {
 		System.out.println("TESTE :" + deviceList);
 		return this.deviceList;
