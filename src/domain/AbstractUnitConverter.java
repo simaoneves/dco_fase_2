@@ -20,5 +20,5 @@ public abstract class AbstractUnitConverter implements IUnitConverter{
 		}
 		return result;
 	}
-	public abstract Double convert(String nick, String nick2, Double oldVal);
+	public abstract Double convert(String fromNick, String toNick, Double oldVal);
 }
