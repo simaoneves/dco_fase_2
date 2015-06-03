@@ -17,31 +17,43 @@ import domain.interfaces.IAddObservationsHandler;
 /**
  * Add observation handler used for building the user interface
  *
- * @author fmartins
+ * @author Joao R. && Simao N.
  *
  */
 public class AddObservationsHandler extends ObtainUnitsHandler 
 							implements IAddObservationsHandler {
 	
-	public AddObservationsHandler(User authenticatedUser, UnitCatalog unitCat) {
-		super(authenticatedUser, unitCat);
-		// TODO Auto-generated constructor stub
-	}
-
+	/**
+	 * attributes
+	 */
 	private String selectedIndicator;
 	private Iterable<String> unitsList;
 	private Unit unit;
 	private List<Observation> observList;
+	LinkedList<String> indicatorsList;
 	
+	/**
+	 * constructor
+	 * 
+	 * @see ObtainUnitsHandler#ObtainUnitsHandler(User, UnitCatalog)
+	 */
+	public AddObservationsHandler(User authenticatedUser, UnitCatalog unitCat) {
+		super(authenticatedUser, unitCat);
+		
+	}
 	
+	/**
+	 * @see IAddObservationsHandler#initiateRegister()
+	 */
 	@Override
 	public void initiateRegister() {
 		System.out.println("AddObservations: initiateRegister()");
-		LinkedList<String> catList = createCategoriesList();
+		//apenas para respeitar o ID
+		LinkedList<String> catList = createCategoriesList(); 
     }
 	
 	public void selectCategory(String catId) {
-		LinkedList<String> indicatorsList = createIndicatorsList(catId);
+		indicatorsList = createIndicatorsList(catId);
 	}
 	
 	@Override
