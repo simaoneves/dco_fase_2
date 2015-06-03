@@ -81,7 +81,6 @@ public enum DeviceFactory {
 	 * @return The collection of available adapter names
 	 */
 	public Iterable<String> deviceAdaptersList() {
-		System.out.println("TESTE" + devices);
 		return devices.keySet();
 	}
 }

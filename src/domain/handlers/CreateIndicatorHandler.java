@@ -95,6 +95,7 @@ public class CreateIndicatorHandler extends ObtainUnitsHandler
 
 	/**
 	 * @see ICreateIndicatorHandler#selectDevice(String)
+	 * @requires currentCat != null
 	 */
 	@Override
 	public void selectDevice(String name) {
@@ -137,7 +138,6 @@ public class CreateIndicatorHandler extends ObtainUnitsHandler
 	 * 		list with devices names
 	 */
 	public Iterable<String> getAllDevices() {
-		System.out.println("TESTE :" + deviceList);
 		return this.deviceList;
 	}
 }

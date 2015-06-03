@@ -2,8 +2,19 @@ package domain.converter;
 
 import domain.Pair;
 
+
+/**
+ * This class represents a converter that knows how to handle
+ * Km to Mile conversions
+ * 
+ * @author Joao R. && Simao N.
+ *
+ */
 public class KmMileConverter extends AbstractUnitConverter {
 	 
+	/**
+	 * conversion constants
+	 */
 	private static final double ONE_KILOMETER_IN_MILES = 0.621371192;
 	private static final double ONE_MILE_IN_KILOMETERS = 1.609344;
 
@@ -12,6 +23,10 @@ public class KmMileConverter extends AbstractUnitConverter {
 		add(new Pair<String, String>("Km","m"));
 	}
 	
+
+	/**
+	 * @see AbstractUnitConverter#convert(String, String, Double)
+	 */
 	@Override
 	public Double convert(String fromNick, String toNick, Double oldVal) {
 		

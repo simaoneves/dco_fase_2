@@ -26,7 +26,7 @@ public abstract class User {
 	 * 			username
 	 * @param password
 	 * 			password
-	 * @ensures getName() != null && getPassword() != null
+	 * @ensures getName().equals(name) && getPassword().equals(password)
 	 * 			&& createdCategories != null
 	 */
 	public User(String name, String password) {
@@ -41,8 +41,9 @@ public abstract class User {
 	 * @param password	
 	 * 			string to be compared with user password
 	 * 
-	 * @requires password != null
-	 * @return true if match, false if not 
+	 * @return 	 True if match, 
+	 * 			 False if not 
+	 * @requires this.password != null
 	 */
 	public boolean goodPwd(String password) {
 		return this.password.equals(password);
@@ -98,8 +99,8 @@ public abstract class User {
 	 * @param catId
 	 * 			category name to be created and inserted
 	 * @return
-	 * 			if  old(!createdCategories.contains(catId)) &&
-	 * 				createdCategories.contains(catId)
+	 * 			True if createdCategories.contains(catId),
+	 * 			False if not
 	 */
 	public boolean createCategory(String catId) {
 		Boolean result = false;
