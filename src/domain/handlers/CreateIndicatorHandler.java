@@ -95,6 +95,7 @@ public class CreateIndicatorHandler extends ObtainUnitsHandler
 
 	/**
 	 * @see ICreateIndicatorHandler#selectDevice(String)
+	 * @requires currentCat != null
 	 */
 	@Override
 	public void selectDevice(String name) {

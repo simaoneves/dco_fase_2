@@ -20,6 +20,8 @@ public class UnitCatalog {
 	
 	/**
 	 * constructor
+	 * 
+	 * @ensures unitMap != null
 	 */
 	public UnitCatalog() {
 		this.unitMap = new HashMap<String, Unit>();

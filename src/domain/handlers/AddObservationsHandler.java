@@ -13,6 +13,7 @@ import domain.Unit;
 import domain.User;
 import domain.catalog.UnitCatalog;
 import domain.interfaces.IAddObservationsHandler;
+import domain.interfaces.IObtainUnitsHandler;
 
 /**
  * Add observation handler used for building the user interface
@@ -52,10 +53,19 @@ public class AddObservationsHandler extends ObtainUnitsHandler
 		LinkedList<String> catList = createCategoriesList(); 
     }
 	
+	/**
+	 * get indicators by given category
+	 * 
+	 * @param catId
+	 * 		
+	 */
 	public void selectCategory(String catId) {
 		indicatorsList = createIndicatorsList(catId);
 	}
 	
+	/**
+	 * @see IAddObservationsHandler#selectIndicator(String)
+	 */
 	@Override
 	public void selectIndicator(String name) {
 		System.out.println("ObtainUnitsHandler: selectIndicator(\"" + name + "\")");
@@ -72,6 +82,9 @@ public class AddObservationsHandler extends ObtainUnitsHandler
 		this.unitsList = createUnitsList();
 	}
 	
+	/**
+	 * @see ObtainUnitsHandler#createUnitsList()
+	 */
 	@Override
 	protected Iterable<String> createUnitsList() {
 		String unNick = this.unit.getNick();
@@ -91,7 +104,10 @@ public class AddObservationsHandler extends ObtainUnitsHandler
 			unitsList.add(nick);
 		}
 	}
-               
+    
+	/**
+	 * @see ObtainUnitsHandler#getAllUnits()
+	 */
 	@Override
 	public Iterable<String> getAllUnits() {
 		System.out.println("AddObservations: getAllUnits() for indicator \"" + 
@@ -115,6 +131,9 @@ public class AddObservationsHandler extends ObtainUnitsHandler
 		this.observList = new LinkedList<Observation>();
     }
 
+	/**
+	 * @see IAddObservationsHandler#newObservation(int, int, int, double)
+	 */
 	@Override
     public void newObservation(int y, int m, int d, double val) {
 		System.out.println("AddObservations: newObservation(" + y + ", " + m + ", " + d + ", " + val + ")");
@@ -123,6 +142,9 @@ public class AddObservationsHandler extends ObtainUnitsHandler
 		this.observList.add(o);
     }
     
+	/**
+	 * @see IAddObservationsHandler#confirmObservations()
+	 */
 	@Override
     public int confirmObservations() {
 		System.out.println("AddObservations: confirmObservations()");
@@ -130,15 +152,30 @@ public class AddObservationsHandler extends ObtainUnitsHandler
         return 0;
     }
 
+	/**
+	 * @see IAddObservationsHandler#cancel()
+	 */
 	@Override
 	public void cancel() {
 		System.out.println("AddObservations: cancel()");
 	}
 	
+	/**
+	 * get authenticated user categories
+	 * 
+	 * @return
+	 * 		categories of auth user
+	 */
 	public Iterable<String> getCategoriesAuthenticatedUser() {
 		return super.getCategoriesAuthenticatedUser();
 	}
 	
+	/**
+	 * get indicators of current category of auth user
+	 * 
+	 * @return
+	 * 		indicators of a category
+	 */
 	public Iterable<String> getIndicatorsAuthenticatedUser() {
 		return super.getIndicatorsAuthenticatedUser();
 	}

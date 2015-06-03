@@ -26,7 +26,7 @@ public class CreateUnitHandler implements ICreateUnitHandler {
 	 * 
 	 * @param unitCat
 	 * 		system unit catalog
-	 * @ensures this.unitCat == unitCat
+	 * @ensures this.unitCat.equals(unitCat)
 	 */
 	public CreateUnitHandler(UnitCatalog unitCat){
 		this.unitCat = unitCat;
@@ -55,6 +55,7 @@ public class CreateUnitHandler implements ICreateUnitHandler {
        
 	/**
 	 * @see ICreateUnitHandler#addCompatibleUnit(String)
+	 * @requires unitCat != null
 	 */
 	@Override
     public boolean addCompatibleUnit(String nick) {
@@ -68,6 +69,7 @@ public class CreateUnitHandler implements ICreateUnitHandler {
 
 	/**
 	 * @see ICreateUnitHandler#endCreate()
+	 * @requires unitCat != null
 	 */
 	@Override
     public void endCreate() {
@@ -79,6 +81,7 @@ public class CreateUnitHandler implements ICreateUnitHandler {
 	 * get all unit in the system
 	 * 
 	 * @see ICreateUnitHandler#getAllUnits()
+	 * @requires unitCat != null
 	 */
 	@Override
 	public Iterable<String> getAllUnits() {
