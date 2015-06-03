@@ -1,8 +1,7 @@
 package domain.handlers;
 
-import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.Date;
+
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,13 +12,13 @@ import domain.Unit;
 import domain.User;
 import domain.catalog.UnitCatalog;
 import domain.interfaces.IAddObservationsHandler;
-import domain.interfaces.IObtainUnitsHandler;
 
 /**
  * Add observation handler used for building the user interface
  *
- * @author Joao R. && Simao N.
- *
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
+ * 
  */
 public class AddObservationsHandler extends ObtainUnitsHandler 
 							implements IAddObservationsHandler {
@@ -27,11 +26,14 @@ public class AddObservationsHandler extends ObtainUnitsHandler
 	/**
 	 * attributes
 	 */
+	@SuppressWarnings("unused")
 	private String selectedIndicator;
-	private Iterable<String> unitsList;
 	private Unit unit;
 	private List<Observation> observList;
 	LinkedList<String> indicatorsList;
+	
+	@SuppressWarnings("unused")
+	private Iterable<String> unitsList;
 	
 	/**
 	 * constructor
@@ -48,9 +50,8 @@ public class AddObservationsHandler extends ObtainUnitsHandler
 	 */
 	@Override
 	public void initiateRegister() {
-		System.out.println("AddObservations: initiateRegister()");
-		//apenas para respeitar o ID
-		LinkedList<String> catList = createCategoriesList(); 
+		//System.out.println("AddObservations: initiateRegister()");
+		this.categoryList = createCategoriesList();
     }
 	
 	/**
@@ -68,8 +69,8 @@ public class AddObservationsHandler extends ObtainUnitsHandler
 	 */
 	@Override
 	public void selectIndicator(String name) {
-		System.out.println("ObtainUnitsHandler: selectIndicator(\"" + name + "\")");
-		selectedIndicator = name;
+		//System.out.println("ObtainUnitsHandler: selectIndicator(\"" + name + "\")");
+		this.selectedIndicator = name;
 		
 		Iterator<Indicator> iterator = this.currentCat.getIndicators();
 		Indicator ind = null;
@@ -108,8 +109,8 @@ public class AddObservationsHandler extends ObtainUnitsHandler
 	 */
 	@Override
 	public Iterable<String> getAllUnits() {
-		System.out.println("AddObservations: getAllUnits() for indicator \"" + 
-				selectedIndicator + "\"");		
+		//System.out.println("AddObservations: getAllUnits() for indicator \"" + 
+			//	selectedIndicator + "\"");		
 		return super.getAllUnits();		
     }
 	
@@ -119,7 +120,7 @@ public class AddObservationsHandler extends ObtainUnitsHandler
 	 */
 	@Override
     public void selectUnit(String name) {
-		System.out.println("AddObservations: selectUnit(\"" + name + "\")");
+		//System.out.println("AddObservations: selectUnit(\"" + name + "\")");
 		Unit selectedUnit = this.unitCat.getUnit(name);
 		this.currentCat.setObservationsUnit(selectedUnit);
 		this.observList = new LinkedList<Observation>();
@@ -130,8 +131,9 @@ public class AddObservationsHandler extends ObtainUnitsHandler
 	 */
 	@Override
     public void newObservation(int y, int m, int d, double val) {
-		System.out.println("AddObservations: newObservation(" + y + ", " + m + ", " + d + ", " + val + ")");
-		LocalDate date = LocalDate.of(y, m, d);
+		//System.out.println("AddObservations: newObservation(" + y + ", " + m + ", " + d + ", " + val + ")");
+		Calendar date = Calendar.getInstance();
+		date.set(y, m, d);
 		Observation o = new Observation(date, val);
 		this.observList.add(o);
     }
@@ -141,9 +143,9 @@ public class AddObservationsHandler extends ObtainUnitsHandler
 	 */
 	@Override
     public int confirmObservations() {
-		System.out.println("AddObservations: confirmObservations()");
+		//System.out.println("AddObservations: confirmObservations()");
 		this.currentCat.addObservationsCurrentIndicator(this.observList);
-        return 0;
+        return this.observList.size();
     }
 
 	/**
@@ -151,7 +153,7 @@ public class AddObservationsHandler extends ObtainUnitsHandler
 	 */
 	@Override
 	public void cancel() {
-		System.out.println("AddObservations: cancel()");
+		//System.out.println("AddObservations: cancel()");
 	}
 	
 	/**

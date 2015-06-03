@@ -9,7 +9,8 @@ import domain.interfaces.IObtainUnitsHandler;
 /**
  * An obtain units handler used for building the user interface
  * 
- * @author Joao R. && Simao N.
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
  *
  */
 public class ObtainUnitsHandler extends ObtainIndicatorsHandler 
@@ -39,19 +40,8 @@ public class ObtainUnitsHandler extends ObtainIndicatorsHandler
 	 */
 	@Override
 	public Iterable<String> getAllUnits() {
-		System.out.println("ObtainUnitsHandler: getUnitNames()");
-		// return Arrays.asList("Km", "Kg", "Km/h", "Unidades");
-		// MAL
+		//System.out.println("ObtainUnitsHandler: getUnitNames()");
 		return createUnitsList();
-	}
-
-	/**
-	 * @see IObtainUnitsHandler#selectCategory(String)
-	 */
-	@Override
-	public void selectCategory(String name) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	protected Iterable<String> createUnitsList(){
@@ -63,7 +53,6 @@ public class ObtainUnitsHandler extends ObtainIndicatorsHandler
 	 */
 	@Override
 	public Iterable<String> getIndicatorsAuthenticatedUser() {
-		
 		return this.createIndicatorsList(this.currentCat.getName());
 	}
 
@@ -72,7 +61,6 @@ public class ObtainUnitsHandler extends ObtainIndicatorsHandler
 	 */
 	@Override
 	public Iterable<String> getCategoriesAuthenticatedUser() {
-		
 		return categoryList;
 	}
 }

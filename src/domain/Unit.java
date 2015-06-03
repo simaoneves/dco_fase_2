@@ -4,7 +4,6 @@ import domain.converter.AbstractUnitConverter;
 import domain.factory.UnitConverterFactory;
 import domain.interfaces.IUnitConverter;
 
-import java.util.Iterator;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
@@ -13,8 +12,9 @@ import java.util.LinkedList;
 /**
  * This class represents a Unit of observation
  * 
- * @author Joao R. && Simao N.
- *
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
+ * 
  */
 public class Unit {
 	
@@ -156,7 +156,13 @@ public class Unit {
 	 * @return
 	 * 		all known converters
 	 */
-	public Iterable<IUnitConverter> getConverters() {
-		return converterMap.values();
+	public Iterable<String> getConverters() {
+		List<String> finalList = new LinkedList<String>(); 
+		for(IUnitConverter conv : this.converterMap.values()) {
+			String[] str = conv.toString().split("@");
+			finalList.add(str[0]);
+		}
+		return finalList;
+		
 	}
 }

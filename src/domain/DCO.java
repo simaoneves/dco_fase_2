@@ -27,8 +27,9 @@ import services.SessionManager;
  * It executes the start up use case and provides the
  * handlers application use case handlers
  * 
- * @author Joao R. && Simao N.
- *
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
+ * 
  */
 public class DCO implements IDCO {
 	

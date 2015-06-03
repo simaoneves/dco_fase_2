@@ -6,8 +6,9 @@ import domain.Indicator;
 /**
  * This class represents a indicators factory
  * 
- * @author Joao R. && Simao N.
- *
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
+ * 
  */
 public class IndicatorFactory {
 	

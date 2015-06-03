@@ -4,14 +4,14 @@ package domain.catalog;
 import java.util.HashMap;
 import java.util.Map;
 
-import domain.Oriented;
 import domain.User;
 
 /**
  * This class represents a users catalog
  * 
- * @author Joao R. && Simao N.
- *
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
+ * 
  */
 public class UserCatalog {
 	
@@ -27,12 +27,6 @@ public class UserCatalog {
 	 */
 	public UserCatalog() {
 		this.userMap = new HashMap<String, User>();
-		
-		/// TESTE
-		User simao = new Oriented("ss", "ss");
-		simao.createCategory("categoria_teste");
-		simao.createCategory("outra_categoria");
-		userMap.put("ss", simao);
 	}
 	
 	/**

@@ -5,7 +5,8 @@ import devices.IDeviceAdapter;
 /**
  * This class represents a Automatic Indicator
  * 
- * @author Joao R. && Simao N.
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
  *
  */
 public class Automatic extends Indicator{
@@ -13,6 +14,7 @@ public class Automatic extends Indicator{
 	/**
 	 * attributes
 	 */
+	@SuppressWarnings("unused")
 	private IDeviceAdapter IDeviceAdapter;
 	
 	/**

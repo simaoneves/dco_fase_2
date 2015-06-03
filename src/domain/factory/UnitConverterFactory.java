@@ -9,8 +9,9 @@ import domain.converter.KmMileConverter;
 /**
  * This class represents a unit converters factory
  * 
- * @author Joao R. && Simao N.
- *
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
+ * 
  */
 public class UnitConverterFactory {
 	

@@ -10,8 +10,9 @@ import domain.interfaces.ICreateIndicatorHandler;
 /**
  * A create indicator handler used for building the user interface
  * 
- * @author Joao R. && Simao N.
- *
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
+ * 
  */
 public class CreateIndicatorHandler extends ObtainUnitsHandler 
 						implements ICreateIndicatorHandler {
@@ -20,6 +21,9 @@ public class CreateIndicatorHandler extends ObtainUnitsHandler
 	 * attributes
 	 */
 	private Iterable<String> deviceList;
+	
+	@SuppressWarnings("unused")
+	private Iterable<String> unitList;
 	
 	/**
 	 * constructor
@@ -39,7 +43,7 @@ public class CreateIndicatorHandler extends ObtainUnitsHandler
 	 */
 	@Override
 	public void newIndicator() {
-		System.out.println("CreateIndicator: newIndicator()");
+		//System.out.println("CreateIndicator: newIndicator()");
 		this.categoryList = createCategoriesList(); 
 	}
 	
@@ -58,13 +62,13 @@ public class CreateIndicatorHandler extends ObtainUnitsHandler
 	 */
 	@Override 
 	public boolean supplyNameAndMode(String name, String mode) {
-		System.out.println("CreateIndicator: supplyNameAndMode(\"" + name + "\", \"" + mode + "\")");
+		//System.out.println("CreateIndicator: supplyNameAndMode(\"" + name + "\", \"" + mode + "\")");
 		
 		if(this.indicatorsList.contains(name))
 			return false;
 		
 		currentCat.createIndicator(name, mode);
-		Iterable<String> unitList = createUnitsList();
+		this.unitList = createUnitsList();
 		if (mode.equals("AUTOMATIC")) {
 			this.deviceList = createDevicesList();
 		}
@@ -89,7 +93,7 @@ public class CreateIndicatorHandler extends ObtainUnitsHandler
 	 */
 	@Override 
 	public Iterable<String> getDeviceNames() {
-		System.out.println("CreateIndicator: getDeviceNames()");
+		//System.out.println("CreateIndicator: getDeviceNames()");
 		return getAllDevices();		
 	}
 
@@ -99,7 +103,7 @@ public class CreateIndicatorHandler extends ObtainUnitsHandler
 	 */
 	@Override
 	public void selectDevice(String name) {
-		System.out.println("CreateIndicator: selectDevice(\"" + name + "\")");
+		//System.out.println("CreateIndicator: selectDevice(\"" + name + "\")");
 		IDeviceAdapter device = DeviceFactory.INSTANCE.getDeviceAdapter(name);
 		currentCat.setDeviceCurrentIndicator(device);
 	}	
@@ -109,7 +113,7 @@ public class CreateIndicatorHandler extends ObtainUnitsHandler
 	 */
 	@Override
 	public void cancel() {
-		System.out.println("CreateIndicator: cancel()");
+		//System.out.println("CreateIndicator: cancel()");
 	}
 
 	/**
@@ -117,7 +121,7 @@ public class CreateIndicatorHandler extends ObtainUnitsHandler
 	 */
 	@Override
 	public void selectUnit(String name) {
-		System.out.println("CreateIndicator: selectUnit(\"" + name + "\")");
+		//System.out.println("CreateIndicator: selectUnit(\"" + name + "\")");
 		Unit unit = unitCat.getUnit(name);
 		currentCat.setUnitCurrentIndicator(unit);
 	}
@@ -127,7 +131,7 @@ public class CreateIndicatorHandler extends ObtainUnitsHandler
 	 */
 	@Override
 	public void confirm() {
-		System.out.println("CreateIndicator: confirm()");
+		//System.out.println("CreateIndicator: confirm()");
 		currentCat.confirmCreationIndicator();
 	}
 	

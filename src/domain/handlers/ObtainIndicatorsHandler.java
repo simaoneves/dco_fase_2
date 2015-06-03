@@ -18,7 +18,8 @@ import domain.interfaces.IObtainIndicatorsHandler;
 /**
  * An obtained indicators handler used for building the user interface
  * 
- * @author Joao R. && Simao N.
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
  *
  */
 public class ObtainIndicatorsHandler extends ObtainCategoriesHandler 
@@ -49,7 +50,7 @@ public class ObtainIndicatorsHandler extends ObtainCategoriesHandler
 	 */
 	@Override
 	public void selectCategory(String name) {
-		System.out.println("ObtainIndicators: selectCategory(\"" + name + "\")");
+		//System.out.println("ObtainIndicators: selectCategory(\"" + name + "\")");
 		this.selectedCategory = name;
 		
 		indicatorsByCategory.put(name, createIndicatorsList(name));
@@ -83,11 +84,13 @@ public class ObtainIndicatorsHandler extends ObtainCategoriesHandler
 	}
 
 	/**
+	 * get indicators by given category name
+	 * 
 	 * @see ICreateIndicatorHandler#getIndicatorsAuthenticatedUser()
 	 */
 	@Override
 	public Iterable<String> getIndicatorsAuthenticatedUser() {
-		System.out.println("ObtainIndicators: getIndicatorsAuthenticatedUser()");
+		//System.out.println("ObtainIndicators: getIndicatorsAuthenticatedUser()");
 		if (!indicatorsByCategory.containsKey(selectedCategory))
 			return new ArrayList<>(0);
 		else

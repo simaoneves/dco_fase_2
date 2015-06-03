@@ -1,19 +1,20 @@
 package domain;
 
-import java.time.LocalDate;
+import java.util.Calendar;
 
 /**
  * This class represents an Observation
  * 
- * @author Joao R. && Simao N.
- *
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
+ * 
  */
 public class Observation {
 	
 	/**
 	 * attributes
 	 */
-	private LocalDate localDate;
+	private Calendar date;
 	private Double value;
 	
 	/**
@@ -26,8 +27,8 @@ public class Observation {
 	 * @ensures localDate.equals(date) &&
 	 * 			value == val
 	 */
-	public Observation(LocalDate date, Double val) {
-		this.localDate = localDate;
+	public Observation(Calendar date, Double val) {
+		this.date = date;
 		this.value = val;
 	}
 	
@@ -50,5 +51,15 @@ public class Observation {
 	 */
 	public void setValue(Double newVal) {
 		this.value = newVal;
+	}
+	
+	/**
+	 * returns date
+	 * 
+	 * @return 
+	 * 		Calendar of this observation
+	 */
+	public Calendar getDate() {
+		return this.date;
 	}
 }

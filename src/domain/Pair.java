@@ -3,7 +3,8 @@ package domain;
 /**
  * This class represents a pair
  * 
- * @author Joao R. && Simao N.
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
  *
  * @param <E>
  * @param <F>
@@ -21,7 +22,9 @@ public class Pair<E, F> {
 	 * Constructor
 	 * 
 	 * @param fst
+	 * 		first element of pair
 	 * @param snd
+	 * 		second element of pair
 	 */
 	public Pair(E fst, F snd){
 		this.fst = fst;
@@ -32,7 +35,7 @@ public class Pair<E, F> {
 	 * get the first element of pair
 	 * 
 	 * @return
-	 * 		first elem of pair
+	 * 		first element of pair
 	 */
 	public E getFirst() {
 		return this.fst;
@@ -42,7 +45,7 @@ public class Pair<E, F> {
 	 * get the second element of pair
 	 * 
 	 * @return
-	 * 		second elem of pair
+	 * 		second element of pair
 	 */
 	public F getSecond() {
 		return this.snd;

@@ -1,15 +1,15 @@
 package domain.catalog;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.HashMap;
 
 import domain.Unit;
 
 /**
  * This class represents a catalog of units
  * 
- * @author Joao R. && Simao N.
- *
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
  */
 public class UnitCatalog {
 	
@@ -24,10 +24,7 @@ public class UnitCatalog {
 	 * @ensures unitMap != null
 	 */
 	public UnitCatalog() {
-		this.unitMap = new HashMap<String, Unit>();
-		
-		// TESTE
-		addUnit(new Unit("metro", "abv"));
+		this.unitMap = new LinkedHashMap<String, Unit>();
 	}
 	
 	/**

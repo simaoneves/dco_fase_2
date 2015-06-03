@@ -1,5 +1,5 @@
 package startup;
-/*
+
 import java.util.Calendar;
 
 import domain.Category;
@@ -184,13 +184,13 @@ public class TextClient {
         units[1] = unitCat.getUnit("Mile");
         units[2] = unitCat.getUnit("m");
         System.out.println(3 + " " + units[0].getNick() + " = " + 
-        		units[0].convertTo(units[1], 3) + " " + units[1].getNick());
+        		units[0].convertTo(units[1], 3.0) + " " + units[1].getNick());
         System.out.println(3 + " " + units[1].getNick() + " = " + 
-        		units[1].convertTo(units[0], 3) + " " + units[0].getNick());
+        		units[1].convertTo(units[0], 3.0) + " " + units[0].getNick());
         System.out.println(3 + " " + units[0].getNick() + " = " + 
-        		units[0].convertTo(units[2], 3) + " " + units[2].getNick());
+        		units[0].convertTo(units[2], 3.0) + " " + units[2].getNick());
         System.out.println(3 + " " + units[2].getNick() + " = " + 
-        		units[2].convertTo(units[0], 3) + " " + units[0].getNick());
+        		units[2].convertTo(units[0], 3.0) + " " + units[0].getNick());
 	}
 
 	/////////////////////////////
@@ -320,4 +320,3 @@ public class TextClient {
 	}
 
 }
-*/

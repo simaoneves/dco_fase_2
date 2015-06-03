@@ -10,8 +10,9 @@ import domain.interfaces.IUnitConverter;
 /**
  * This class represents a unit converter template
  * 
- * @author Joao R. && Simao N.
- *
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
+ * 
  */
 public abstract class AbstractUnitConverter implements IUnitConverter{
 	
@@ -22,20 +23,14 @@ public abstract class AbstractUnitConverter implements IUnitConverter{
 	
 	/**
 	 * Constructor
+	 * 
 	 */
 	public AbstractUnitConverter(){
-		fromTo = new LinkedList<>();
+		this.fromTo = new LinkedList<>();
 	}
 	
 	/**
-	 * check if exists a converter that knows how to
-	 * handle the conversion between given unit
-	 * 
-	 * @param nick
-	 * 		unit nick, to be converted from
-	 * @param unitNick
-	 * 		unit nick, to be converted to
-	 * 
+	 * @see IUnitConverter#doYouConvert(String, String)
 	 */
 	public boolean doYouConvert(String nick, String unitNick) {
 		boolean result = false;
@@ -59,18 +54,8 @@ public abstract class AbstractUnitConverter implements IUnitConverter{
 	}
 	
 	/**
-	 * convert a value from a unit to another
-	 * 
-	 * @param fromNick
-	 * 		unit nick, to be converted from
-	 * @param toNcik
-	 * 		unit nick, to be converted to
-	 * @param oldVal
-	 * 		value to be converted
-	 * @return
-	 * 		converted value
-	 * @requires
-	 * 		fromNick != null
+	 * @see IUnitConverter#convert(String, String, Double)
 	 */
 	public abstract Double convert(String fromNick, String toNick, Double oldVal);
+	
 }

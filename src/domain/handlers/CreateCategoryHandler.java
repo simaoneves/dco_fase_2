@@ -6,8 +6,9 @@ import domain.interfaces.ICreateCategoryHandler;
 /**
  * A create indicator handler used for building the user interface
  * 
- * @author Joao R. && Simao N.
- *
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
+ * 
  */
 public class CreateCategoryHandler extends ObtainCategoriesHandler 
 								 implements ICreateCategoryHandler {
@@ -27,7 +28,7 @@ public class CreateCategoryHandler extends ObtainCategoriesHandler
 	 */
 	@Override
 	public void newCategory() {
-		System.out.println("CreateCategory: newCategory()");
+		//System.out.println("CreateCategory: newCategory()");
 		super.createCategoriesList();
 	}
 
@@ -38,7 +39,7 @@ public class CreateCategoryHandler extends ObtainCategoriesHandler
 	 */
 	@Override
 	public boolean createCategory(String catId) {
-		System.out.println("CreateCategory: createCategory(\"" + catId + "\")");
+		//System.out.println("CreateCategory: createCategory(\"" + catId + "\")");
 		return this.currentUser.createCategory(catId);
 	}
 	

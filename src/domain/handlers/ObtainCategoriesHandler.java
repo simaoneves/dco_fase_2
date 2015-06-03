@@ -11,7 +11,8 @@ import domain.interfaces.IObtainCategoriesHandler;
 /**
  * An obtain categories handler user for building the user interface
  * 
- * @author Joao R. && Simao N.
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
  *
  */
 public class ObtainCategoriesHandler implements IObtainCategoriesHandler {
@@ -42,7 +43,7 @@ public class ObtainCategoriesHandler implements IObtainCategoriesHandler {
 	 */
 	@Override
 	public Iterable<String> getCategoriesAuthenticatedUser() {
-		System.out.println("ObtainCategories: getCategoriesAuthenticatedUser()");
+		//System.out.println("ObtainCategories: getCategoriesAuthenticatedUser()");
 		createCategoriesList();
 		return categoryList;
 	}

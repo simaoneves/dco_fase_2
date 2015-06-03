@@ -11,8 +11,9 @@ import domain.factory.IndicatorFactory;
 /**
  * This class represents a category
  * 
- * @author Joao R. && Simao N.
- *
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
+ * 
  */
 public class Category {
 	
@@ -20,7 +21,7 @@ public class Category {
 	 * attributes
 	 */
 	private String name;
-	private Map<String, Indicator> indicatorsList;
+	private Map<String, Indicator> indicatorsMap;
 	private Indicator currentIndicator;
 	private Unit observUnit;
 	
@@ -33,7 +34,7 @@ public class Category {
 	 */
 	public Category(String name) {
 		this.name = name;
-		this.indicatorsList = new HashMap<String, Indicator>();
+		this.indicatorsMap = new HashMap<String, Indicator>();
 	}
 	
 	/**
@@ -53,7 +54,7 @@ public class Category {
 	 * 		category indicators
 	 */
 	public Iterator<Indicator> getIndicators() {
-		return this.indicatorsList.values().iterator();
+		return this.indicatorsMap.values().iterator();
 	}
 	
 	/**
@@ -121,7 +122,7 @@ public class Category {
 	 */
 	public void confirmCreationIndicator() {
 		String name = currentIndicator.getName();
-		indicatorsList.put(name, currentIndicator);
+		this.indicatorsMap.put(name, currentIndicator);
 	}
 	
 	/**
@@ -132,6 +133,16 @@ public class Category {
 	 */
 	public void addObservationsCurrentIndicator(List<Observation> observList) {
 		this.currentIndicator.addObservations(observList, this.observUnit);	
+	}
+
+	/**
+	 * returns the indicator with name indicatorName, in the indicatorsList
+	 * 
+	 * @param indicatorName
+	 * @return indicator with indicatorName name, null if it doesnt exist
+	 */
+	public Indicator getIndicator(String indicatorName) {
+		return this.indicatorsMap.get(indicatorName);
 	}
 
 }

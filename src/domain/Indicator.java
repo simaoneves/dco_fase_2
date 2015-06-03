@@ -1,12 +1,14 @@
 package domain;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
  * This class represents an Indicator
  * 
- * @author Joao R. && Simao N.
- *
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
+ * 
  */
 public class Indicator {
 	
@@ -15,6 +17,7 @@ public class Indicator {
 	 */
 	private String name;
 	private Unit unit;
+	private List<Observation> observationList;
 	
 	/**
 	 * constructor
@@ -24,10 +27,12 @@ public class Indicator {
 	 */
 	public Indicator(String name) {
 		this.name = name;
+		this.observationList = new LinkedList<Observation>();
 	}
 	
 	/**
 	 * get name
+	 * 
 	 * @return
 	 * 		this.name
 	 */
@@ -50,7 +55,7 @@ public class Indicator {
 	 * get unit
 	 * 
 	 * @return
-	 * 		get unit
+	 * 		this indicator unit
 	 */
 	public Unit getUnit() {
 		return this.unit;
@@ -66,18 +71,28 @@ public class Indicator {
 	 */
 	public void addObservations(List<Observation> observList, Unit observUnit) {
 		
-		if (observUnit != this.unit)
+		if (observUnit != this.unit) {
 			convertObservations(observList, observUnit);
-		
+		}
+		this.observationList.addAll(observList);
 	}
 
 	private void convertObservations(List<Observation> observList, Unit observUnit) {
-		System.out.println(observUnit);
 		for(Observation o : observList) {
 			Double oldVal = o.getValue();
 			Double newVal = observUnit.convertTo(this.unit, oldVal);
 			o.setValue(newVal);
 		}
+	}
+
+	/**
+	 * returns all the observations in this indicator
+	 * 
+	 * @return 
+	 * 		list with all observations
+	 */
+	public Iterable<Observation> getObservations() {
+		return this.observationList;
 	}
 
 }

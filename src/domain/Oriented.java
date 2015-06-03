@@ -8,8 +8,9 @@ import java.util.Map;
 /**
  * This class represents an Oriented user
  * 
- * @author Joao R. && Simao N.
- *
+ * @author Joao R. && Simao N. && Miguel V.
+ * @author fc45582 && fc45681 && fc39279
+ * 
  */
 public class Oriented extends User {
 
