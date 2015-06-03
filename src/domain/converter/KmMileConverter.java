@@ -1,10 +1,17 @@
 package domain.converter;
 
+import domain.Pair;
+
 public class KmMileConverter extends AbstractUnitConverter {
 	 
 	private static final double ONE_KILOMETER_IN_MILES = 0.621371192;
 	private static final double ONE_MILE_IN_KILOMETERS = 1.609344;
 
+	public KmMileConverter() {
+		add(new Pair<String, String>("m","Km"));
+		add(new Pair<String, String>("Km","m"));
+	}
+	
 	@Override
 	public Double convert(String fromNick, String toNick, Double oldVal) {
 		

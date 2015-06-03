@@ -28,20 +28,25 @@ public class Unit {
 		boolean b = !compatibleWith(unit);
 		String newUnitNick = unit.getNick();
 		AbstractUnitConverter converter = UnitConverterFactory.getInstance().getUnitConverter(this.getNick(), newUnitNick);
-		if (converter != null)
-			/// MAL
+		if (converter != null) {
 			addToBoth(unit, converter);
-		return false;
+		}
+		return converter != null && b;
 	}
 	
 	private boolean compatibleWith(Unit unit) {
+		for(Unit u : this.compatibleList) {
+			if (u.equals(unit))
+				return true;
+		}
 		return false;
 	}
 	
 	private void addToBoth(Unit unit, AbstractUnitConverter converter) {
-		converterMap.put(unit.getNick(), converter);
-		compatibleList.add(unit);
-		unit.addCompatible(this);
+		this.converterMap.put(unit.getNick(), converter);
+		this.compatibleList.add(unit);
+		unit.converterMap.put(this.getNick(), converter);
+		unit.compatibleList.add(this);
 	}
 	
 	public String getNick(){

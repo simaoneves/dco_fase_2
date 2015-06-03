@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.LinkedList;
 
 import domain.converter.AbstractUnitConverter;
+import domain.converter.KmMileConverter;
 
 public class UnitConverterFactory {
 	
@@ -12,6 +13,7 @@ public class UnitConverterFactory {
 	
 	private UnitConverterFactory() {
 		this.absUnitConverterList = new LinkedList<AbstractUnitConverter>();
+		this.absUnitConverterList.add(new KmMileConverter());
 	}
 	
 	public static UnitConverterFactory getInstance() {
